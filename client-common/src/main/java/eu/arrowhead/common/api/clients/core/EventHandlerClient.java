@@ -137,7 +137,7 @@ public class EventHandlerClient extends HttpClient {
     public void unsubscribe(ArrowheadSystem consumer, String eventType) {
         String consumerName = consumer.getSystemName();
 
-        request(Method.DELETE, SUBSCRIPTION_URI.clone().path("subscription").path("type").path(eventType).path("consumer").path(consumerName));
+        request(Method.DELETE, SUBSCRIPTION_URI.clone().path("type").path(eventType).path("consumer").path(consumerName));
 
         final Map<ArrowheadSystem, Set<String>> handlerSubscriptions = subscriptions.get(this);
         final Set<String> consumerSubscriptions = handlerSubscriptions != null ? handlerSubscriptions.get(consumer) : null;
